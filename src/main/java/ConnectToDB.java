@@ -56,17 +56,19 @@ public class ConnectToDB {
         Statement stmt = null;
         try{
 
-            //STEP 4: Execute a query
+//            STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT first, last, age FROM Employees";
+            sql = "SELECT first, last FROM Employees";
             ResultSet rs = stmt.executeQuery(sql);
 
+            while (rs.next()) System.out.println(rs.getString("first"));
+
             //STEP 6: Clean-up environment
-            rs.close();
-            stmt.close();
-            conn.close();
+//            rs.close();
+//            stmt.close();
+//            conn.close();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
