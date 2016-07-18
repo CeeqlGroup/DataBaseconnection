@@ -2,6 +2,7 @@
 import java.sql.*;
 
 
+
 public class ConnectToDB {
 
     private String SUBPROTOCOL;
@@ -63,7 +64,11 @@ public class ConnectToDB {
             sql = "SELECT first, last FROM Employees";
             ResultSet rs = stmt.executeQuery(sql);
 
+            SerializableResultSet rss = new SerializableResultSet();
+
+//           rss.serialize();
             while (rs.next()) System.out.println(rs.getString("first"));
+
 
             //STEP 6: Clean-up environment
 //            rs.close();
@@ -92,5 +97,3 @@ public class ConnectToDB {
         System.out.println("Goodbye!");
     }//end main
 }
-
-
