@@ -19,7 +19,6 @@ public class Main {
             ResultSet rs = stmt.executeQuery(sql);
 
             CustomObjectMapper mapper = new CustomObjectMapper();
-            System.out.println(mapper.writeValueAsString(rs));
 
 //           rss.serialize();
             while (rs.next()) System.out.println(rs.getString("first"));
