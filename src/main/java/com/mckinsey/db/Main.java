@@ -1,56 +1,26 @@
 package com.mckinsey.db;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Main {
+
+
+    private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
         DbConnection dbConnection = new DbConnection();
-        Connection conn = dbConnection.registerAndOpenConnect();
-        Statement stmt = null;
-        try {
+        dbConnection.loadSampleData();
+        dbConnection.connect();
 
-//            STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            String sql = "SELECT first, last FROM Employees";
-            ResultSet rs = stmt.executeQuery(sql);
+        String json = dbConnection.runQuery("SELECT * FROM products");
+        System.out.println(json);
+        dbConnection.close();
 
-            CustomObjectMapper mapper = new CustomObjectMapper();
-
-//           rss.serialize();
-            while (rs.next()) System.out.println(rs.getString("first"));
-
-
-            //STEP 6: Clean-up environment
-//            rs.close();
-//            stmt.close();
-//            conn.close();
-        } catch(SQLException se) {
-            //Handle errors for JDBC
-            se.printStackTrace();
-        } catch(Exception e) {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        } finally {
-            //finally block used to close resources
-            try {
-                if(stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException se2) {
-                se2.printStackTrace();
-            }// nothing we can do
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch(SQLException se) {
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        System.out.println("Goodbye!");
-    }//end main
+    }
 }
