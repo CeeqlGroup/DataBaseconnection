@@ -1,3 +1,5 @@
+package com.mckinsey.db;
+
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.Clob;
@@ -15,7 +17,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 public class SerializableResultSet extends JsonSerializer<ResultSet> {
 
-//    private static final Logger LOG = LoggerFactory.getLogger(SerializableResultSet.class);
+//    private static final Logger LOG = LoggerFactory.getLogger(com.mckinsey.db.SerializableResultSet.class);
 
     @Override
     public void serialize(ResultSet rs, JsonGenerator gen, SerializerProvider provider) throws IOException, JsonProcessingException {
