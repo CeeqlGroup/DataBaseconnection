@@ -15,13 +15,17 @@ class Products
 
     def self.createSQL(products,x)
 
-    x.times do |x|
-    insertStatement =  "INSERT INTO products (name, code, price, description,chargeCard) VALUES ('#{products[x].name}' , '#{products[x].description}', '#{products[x].chargeCard}', #{products[x].code}, #{products[x].price});"
+      arrayOfSqlStatements = Array.new
+
+      x.times do |x|
+         arrayOfSqlStatements << "INSERT INTO products (name, code, price, description,chargeCard) VALUES ('#{products[x].name}' , '#{products[x].description}', '#{products[x].chargeCard}', #{products[x].code}, #{products[x].price});"
 
 
-				puts insertStatement
+      File.open('SqlStatements.sql', 'w') {|f| f.write arrayOfSqlStatements.join("\n")}
+
   end 
   
+  puts "Writing to file....."
 
  end 
     	
