@@ -33,7 +33,7 @@ class Product
    end 
 
 
-   Product.makeProduct(3)
+   Product.makeProduct(20)
 
 
 
