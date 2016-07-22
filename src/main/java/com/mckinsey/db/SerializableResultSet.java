@@ -1,3 +1,5 @@
+package com.mckinsey.db;
+
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.Clob;
@@ -12,10 +14,17 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SerializableResultSet extends JsonSerializer<ResultSet> {
 
-//    private static final Logger LOG = LoggerFactory.getLogger(SerializableResultSet.class);
+    private static final Logger logger = LogManager.getLogger(SerializableResultSet.class);
+
+    @Override
+    public Class<ResultSet> handledType() {
+        return ResultSet.class;
+    }
 
     @Override
     public void serialize(ResultSet rs, JsonGenerator gen, SerializerProvider provider) throws IOException, JsonProcessingException {
@@ -36,6 +45,7 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
             gen.writeStartArray();
 
             while (rs.next()) {
+
                 boolean b;
                 long l;
                 double d;
@@ -46,6 +56,7 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
                 for (int i = 0; i < columnNames.length; i++) {
 
                     gen.writeFieldName(columnNames[i].toLowerCase());
+
                     switch (columnTypes[i]) {
 
                         case Types.INTEGER:
@@ -82,9 +93,9 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
                             }
                             break;
 
-//                        case Types.NVARCHAR:
+                        case Types.NVARCHAR:
                         case Types.VARCHAR:
-//                        case Types.LONGNVARCHAR:
+                        case Types.LONGNVARCHAR:
                         case Types.LONGVARCHAR:
                             gen.writeString(rs.getString(i + 1));
                             break;
@@ -130,13 +141,13 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
                         case Types.BLOB:
                             final Blob blob = rs.getBlob(i + 1);
                             provider.defaultSerializeValue(blob.getBinaryStream(), gen);
-//                            blob.free();
+                            blob.free();
                             break;
 
                         case Types.CLOB:
                             final Clob clob = rs.getClob(i + 1);
                             provider.defaultSerializeValue(clob.getCharacterStream(), gen);
-//                            clob.free();
+                            clob.free();
                             break;
 
                         case Types.ARRAY:
@@ -160,8 +171,12 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
                 gen.writeEndObject();
             }
             gen.writeEndArray();
+
             gen.getPrettyPrinter();
-            System.out.println(gen.getPrettyPrinter());
+
+            logger.debug(gen.getPrettyPrinter());
+
+
             rs.close();
 
             long end = System.nanoTime();
@@ -170,11 +185,6 @@ public class SerializableResultSet extends JsonSerializer<ResultSet> {
 
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public Class<ResultSet> handledType() {
-        return ResultSet.class;
     }
 
 }

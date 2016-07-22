@@ -19,8 +19,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="json_main" target="1.5" />
-      <module name="json_test" target="1.5" />
+      <module name="databaseConnection_main" target="1.8" />
+      <module name="databaseConnection_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

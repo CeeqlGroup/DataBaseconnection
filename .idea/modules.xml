@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/json.iml" filepath="$PROJECT_DIR$/.idea/modules/json.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/json_main.iml" filepath="$PROJECT_DIR$/.idea/modules/json_main.iml" group="json" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/json_test.iml" filepath="$PROJECT_DIR$/.idea/modules/json_test.iml" group="json" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databaseConnection.iml" filepath="$PROJECT_DIR$/.idea/modules/databaseConnection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databaseConnection_main.iml" filepath="$PROJECT_DIR$/.idea/modules/databaseConnection_main.iml" group="databaseConnection" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databaseConnection_test.iml" filepath="$PROJECT_DIR$/.idea/modules/databaseConnection_test.iml" group="databaseConnection" />
     </modules>
   </component>
 </project>
