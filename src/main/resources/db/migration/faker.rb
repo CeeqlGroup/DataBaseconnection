@@ -24,14 +24,12 @@ class Products
     	
 
    def self.makeProduct(x)
-
    	products = Array.new
    	x.times do |n|
-   		products.push(Products.new(Faker::Commerce.product_name,Faker::Lorem.words(2),Faker::Business.credit_card_type, Faker::Code.isbn,Faker::Commerce.price))
+   		products.push(Products.new(Faker::Commerce.product_name, Faker::Code.isbn, Faker::Commerce.price, Faker::Lorem.words(2),Faker::Business.credit_card_type))
    	end 
    		createSQL(products, x)
    end 
-
 
 
    Products.makeProduct(100)
