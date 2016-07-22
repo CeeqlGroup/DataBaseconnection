@@ -17,12 +17,11 @@ class Products
       arrayOfSqlStatements = Array.new
       x.times do |x|
          arrayOfSqlStatements << "INSERT INTO products (name, code, price, description,chargeCard) VALUES ('#{products[x].name}' , '#{products[x].description}', '#{products[x].chargeCard}', #{products[x].code}, #{products[x].price});"
-      File.open('SqlStatements.sql', 'w') {|f| f.write arrayOfSqlStatements.join("\n")}
+      File.open('V2__insert_products.sql', 'w') {|f| f.write arrayOfSqlStatements.join("\n")}
       end 
-    puts "Writing to file....."
+    puts "Done, writing to file. "
   end 
     	
- 
 
    def self.makeProduct(x)
 
@@ -35,7 +34,7 @@ class Products
 
 
 
-   Products.makeProduct(10)
+   Products.makeProduct(100)
 
 
 
