@@ -16,7 +16,7 @@ class Products
     def self.createSQL(products,x)
     	
     x.times do |x|
-    	insertStatement = "INSERT INTO products (Name,Code,Price,Description,ChargeCard) VALUES + (" + "#{products[x].name}" + "," + "#{products[x].code}" + "," + "#{products[x].price}" + "," + "#{products[x].description}" + "," + "#{products[x].chargeCard}" 
+    	insertStatement = "INSERT INTO products (Name,Code,Price,Description,ChargeCard) VALUES (" "#{products[x].name}" + "," + "#{products[x].code}" + "," + "#{products[x].price}" + "," + "#{products[x].description}" + "," + "#{products[x].chargeCard}" + ")" + ";"
 
 				puts insertStatement
 
