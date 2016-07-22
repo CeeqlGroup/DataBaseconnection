@@ -13,11 +13,9 @@ class Product
    end 
 
     def self.createSQL(products,x)
-
       arrayOfSqlStatements = Array.new
       x.times do |x|
-         arrayOfSqlStatements << "INSERT INTO products (name,description,chargeCard,code, price) VALUES ('#{products[x].name}','#{products[x].description}','#{products[x].chargeCard}', #{products[x].code}, #{products[x].price});" 
-         
+         arrayOfSqlStatements << "INSERT INTO products (name,description,chargeCard,code, price) VALUES ('#{products[x].name}','#{products[x].description}','#{products[x].chargeCard}', '#{products[x].code}', #{products[x].price});" 
       File.open('V2__insert_products.sql', 'w') {|f| f.write arrayOfSqlStatements.join("\n")}
       end 
     puts "Done, writing to file. "

@@ -1,3 +1,3 @@
-INSERT INTO products (name, code, price, description,chargeCard) VALUES ('Lightweight Cotton Computer','["ipsum", "optio"]','diners_club', 878801511-4, 24.66);
-INSERT INTO products (name, code, price, description,chargeCard) VALUES ('Synergistic Paper Bench','["aperiam", "quis"]','maestro', 658578452-9, 2.51);
-INSERT INTO products (name, code, price, description,chargeCard) VALUES ('Intelligent Silk Pants','["qui", "est"]','mastercard', 087422501-9, 75.5);
+INSERT INTO products (name,description,chargeCard,code, price) VALUES ('Incredible Aluminum Wallet','["voluptatum", "quam"]','laser', '839415049-7', 21.97);
+INSERT INTO products (name,description,chargeCard,code, price) VALUES ('Ergonomic Linen Shoes','["molestias", "veniam"]','forbrugsforeningen', '534904187-8', 33.2);
+INSERT INTO products (name,description,chargeCard,code, price) VALUES ('Practical Copper Coat','["earum", "occaecati"]','laser', '013206473-1', 47.01);
