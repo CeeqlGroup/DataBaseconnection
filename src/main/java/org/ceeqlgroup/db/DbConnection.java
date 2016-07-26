@@ -1,4 +1,4 @@
-package com.mckinsey.db;//STEP 1. Import required packages
+package org.ceeqlgroup.db;//STEP 1. Import required packages
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

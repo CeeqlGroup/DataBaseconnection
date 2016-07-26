@@ -1,4 +1,4 @@
-package com.mckinsey.db;
+package org.ceeqlgroup.db;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;

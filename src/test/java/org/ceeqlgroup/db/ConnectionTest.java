@@ -1,4 +1,4 @@
-package com.mckinsey.db;
+package org.ceeqlgroup.db;
 
 import org.junit.Test;
 

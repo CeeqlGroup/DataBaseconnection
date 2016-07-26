@@ -6,9 +6,9 @@ plugins {
 }
 
 sourceCompatibility = 1.8
-mainClassName = "com.mckinsey.db.Main"
+mainClassName = "org.ceeqlgroup.Main"
 version '0.0.1'
-group 'com.mckinsey'
+group 'org.ceeqlgroup'
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
